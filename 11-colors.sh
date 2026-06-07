@@ -32,7 +32,7 @@ VALIDATE $? "Installation of mysql"
 dnf install git -y &>> $LOGFILE
 VALIDATE $? "Installation of git"
 
-dnf insatll dockerr -y &>> $LOGFILE
-VALIDATE $? "Instalation of docker"
+dnf install dockerr -y &>> $LOGFILE
+VALIDATE $? "Installation of docker"
 
 echo "Thank you!"
