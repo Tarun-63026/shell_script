@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo "Print all variables : $"
+echo "Print all variables : $@"
 echo "Number of variables : $#"
 echo "Script name : $0"
 echo "Home directory of the user is : $HOME"
