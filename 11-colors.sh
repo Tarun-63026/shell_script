@@ -5,9 +5,9 @@ TIME_STAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOGFILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
 
-R=$\e[31m
-G=$\e[32m
-N=$\e[0m
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 
 echo "Your script is running at $TIME_STAMP"
 
@@ -31,5 +31,8 @@ VALIDATE $? "Installation of mysql"
 
 dnf install git -y &>> $LOGFILE
 VALIDATE $? "Installation of git"
+
+dnf insatll dockerr -y &>> $LOGFILE
+VALIDATE $? "Insatlation of Docker"
 
 echo "Thank you!"
