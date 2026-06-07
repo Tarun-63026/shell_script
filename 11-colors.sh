@@ -5,9 +5,9 @@ TIME_STAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOGFILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
 
-R=\e[31m
-G=\e[32m
-N=\3[0m
+R=$\e[31m
+G=$\e[32m
+N=$\e[0m
 
 echo "Your script is running at $TIME_STAMP"
 
