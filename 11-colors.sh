@@ -13,9 +13,9 @@ echo "Your script is running at $TIME_STAMP"
 
 VALIDATE () {
     if [ $1 -ne 0 ]; then
-       echo " $2 -e $R Failure.. $N"
+       echo -e " $2.. $R failure.. $N"
     else
-       echo " $2 -e $G success.. $N"
+       echo -e " $2.. $G success.. $N"
     fi
 }
 
@@ -33,6 +33,6 @@ dnf install git -y &>> $LOGFILE
 VALIDATE $? "Installation of git"
 
 dnf insatll dockerr -y &>> $LOGFILE
-VALIDATE $? "Insatlation of Docker"
+VALIDATE $? "Instalation of docker"
 
 echo "Thank you!"
