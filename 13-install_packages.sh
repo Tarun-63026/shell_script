@@ -23,7 +23,7 @@ if [ $USERID -ne 0 ]; then
    echo "Please switch to the super user"
    exit 1
 else
-   echo "YOu are the super user, please proceed"
+   echo "You are the super user, please proceed"
 fi
 
 for i in $@
@@ -31,8 +31,8 @@ do
   echo "Package to install : $i"
   dnf list installed $i &>>$LOG_FILE
   if [ $? -ne 0 ]; then
-   echo -e "$i $R package need to be install $N"
-else
-   echo -e "$i $G package already insatlled $N"
-fi
-
+  echo -e "$i $R package need to be install $N"
+  else
+  echo -e "$i $G package already insatlled $N"
+  fi
+done
