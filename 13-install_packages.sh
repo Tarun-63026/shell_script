@@ -21,7 +21,7 @@ fi
 for i in $@
 do
   echo "Package to install : $i"
-  dnf list installed $i &>> $LOG_FILE
+  dnf list installed $i &>>$LOG_FILE
 if [ $? -ne 0 ]; then
    echo -e "$i $R package need to be install $N"
 else
