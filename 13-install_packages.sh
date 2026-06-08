@@ -13,9 +13,9 @@ N="\e[0m"
 
 VALIDATE () {
     if [ $1 -ne 0 ]; then
-       echo " $2 failure.."
+       echo -e " $2 $R failure.. $N"
     else
-       echo " $2 success.."
+       echo -e " $2 $G success.. $N"
     fi
 }
 
@@ -31,8 +31,9 @@ do
   echo "Package to install : $i"
   dnf list installed $i &>>$LOG_FILE
   if [ $? -ne 0 ]; then
-  echo -e "$i $R package need to be install $N"
+  echo -e "$i $R package need to be install $Y..Skipping installation.. $N"
   else
-  echo -e "$i $G package already insatlled $N"
+  dnf install $i -y &>>$LOG_FILE
+    VALIDATE $? "Installation of $i"
   fi
 done
