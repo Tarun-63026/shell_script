@@ -11,6 +11,14 @@ G="\e[32m"
 Y="\e[33m"
 N="\2+e[0m"
 
+VALIDATE () {
+    if [ $1 -ne 0 ]; then
+       echo " $2 failure.."
+    else
+       echo " $2 success.."
+    fi
+}
+
 if [ $USERID -ne 0 ]; then
    echo "Please switch to the super user"
    exit 1
@@ -22,7 +30,7 @@ for i in $@
 do
   echo "Package to install : $i"
   dnf list installed $i &>>$LOG_FILE
-if [ $? -ne 0 ]; then
+  if [ $? -ne 0 ]; then
    echo -e "$i $R package need to be install $N"
 else
    echo -e "$i $G package already insatlled $N"
