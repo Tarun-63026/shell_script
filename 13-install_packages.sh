@@ -13,6 +13,7 @@ N="\2+e[0m"
 
 if [ $USERID -ne 0 ]; then
    echo "Please switch to the super user"
+   exit 1
 else
    echo "YOu are the super user, please proceed"
 fi
