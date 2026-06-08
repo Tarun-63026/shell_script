@@ -9,7 +9,7 @@ LOG_FILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-N="\2+e[0m"
+N="\e[0m"
 
 VALIDATE () {
     if [ $1 -ne 0 ]; then
