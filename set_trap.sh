@@ -20,12 +20,12 @@ else
    echo "Your mysql insatlltion was success.."
 fi
 
-dnf install git -y
+dnf installl nginx -y
 
 if [ $? -ne 0 ]; then
-   echo "Your  git was failed..."
+   echo "Your  nginx was failed..."
 else
-   echo "Your git insatlltion was success.."
+   echo "Your nginx insatlltion was success.."
 fi
 
 echo "Thank you!"
