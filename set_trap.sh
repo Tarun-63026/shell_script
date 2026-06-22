@@ -6,7 +6,7 @@ failure(){
     echo "Error occurred in script at line $1 while executing command: $2"
 }
 
-trap 'failure ${LINENO} "{BASH_COMMAND}"' ERR
+trap 'failure ${LINENO} "{$BASH_COMMAND}"' ERR
 
 USERID=$( id -u )
 
