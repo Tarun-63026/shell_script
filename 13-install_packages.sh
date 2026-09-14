@@ -5,35 +5,36 @@ TIME_STAMP=$(date +F%-H%-M%-S%)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
 
-
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-VALIDATE () {
-    if [ $1 -ne 0 ]; then
-       echo -e " $2 $R failure.. $N"
-    else
-       echo -e " $2 $G success.. $N"
-    fi
+VALIDATE(){
+   if [ $1 -ne 0 ]; then
+     echo -e "$2... $R Failure $N"
+     exit
+   else
+     echo -e "$2... $G Success $N" 
+   fi
 }
 
+
 if [ $USERID -ne 0 ]; then
-   echo "Please switch to the super user"
-   exit 1
+  echo "Please switch to the super user"
+  exit 1
 else
-   echo "You are the super user, please proceed"
-fi
+  echo "You are super user, please proceed.."
+fi 
 
 for i in $@
 do
-  echo "Package to install : $i"
-  dnf list installed $i &>>$LOG_FILE
-  if [ $? -ne 0 ]; then
-  echo -e "$i $R package need to be install $Y..Skipping installation.. $N"
+  echo "Package to Install: $i"
+  dnf list installed $i &>>LOGFILE
+  if [ $? -eq 0 ]; then
+    echo -e "$i was already installed... $Y Skipping $N"
   else
-  dnf install $i -y &>>$LOG_FILE
-    VALIDATE $? "Installation of $i"
-  fi
+     dnf install $i -y &>>LOGFILE
+     VALIDATE $? "Instlattion of $i"
+  fi 
 done
