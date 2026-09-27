@@ -9,7 +9,7 @@ do
   USAGE=$(echo "$line" | awk -F " " '{print6F}' | cut -d "%" -f1)
   FOLDER=$(echo "$line" | awk -F " " '{printNF}')
   if [ $USAGE -ge $DISK_THERSHOLD ]; then
-     MESSAGE+=Given $FOLDER storage is greather than the $DISK_THERSHOLD and current usage is $USAGE /n"
+     MESSAGE+="Given $FOLDER storage is greather than the $DISK_THERSHOLD and current usage is $USAGE /n"
   fi
 done <<< $DISK_USAGE
 
