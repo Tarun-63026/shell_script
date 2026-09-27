@@ -26,7 +26,7 @@ FILES=$(find "$SOURCE_DICT" -type f -name ".log*" -mtime +14)
 while IFS= read -r line
 do
   echo "Deleting File: $line"
-  rm -rf $line
-done <<<$FILES
+  rm -rf "$line"
+done <<< $FILES
 
 
