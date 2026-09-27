@@ -1,12 +1,11 @@
-#! /bin/bash
+#!/bin/bash
 
 # Remove the log files older than 2 weeks.
 
-# 1. decide which folder
-# 2. .java and .py .logfile are there in that folder
-# 3. find only .log file
-# 4. find only more than two weeks old files
-
+# 1. Decide which folder
+# 2. Java, Python and log files are present in that folder
+# 3. Find only .log files
+# 4. Find files older than two weeks
 
 SOURCE_DICT=/tmp/app_logs
 
@@ -15,18 +14,17 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [ -d $SOURCE_DICT ]; then
-   echo -e "$G Source Directory already exist $N"
+if [ -d "$SOURCE_DICT" ]; then
+    echo -e "${G}Source Directory already exists${N}"
 else
-   echo -e "$R Please make sure $SOURCE_DICT exist $N"
-   exit 1
+    echo -e "${R}Please make sure $SOURCE_DICT exists${N}"
+    exit 1
 fi
 
-FILES=$( find $SOURCE_DICT -name -mtime +14 )
+FILES=$(find "$SOURCE_DICT" -type f -name "*.log" -mtime +14)
 
 while IFS= read -r line
 do
-  echo "Deleting file: $line"
-  rm -rf $line
-done <<<$FILES
-
+    echo "Deleting file: $line"
+    rm -f "$line"
+done <<< "$FILES"
