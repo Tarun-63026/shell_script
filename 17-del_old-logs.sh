@@ -8,7 +8,7 @@
 # 4. find only more than two weeks old files
 
 
-SOURCE_DICT=/tmp/app_logs
+SOURCE_DICT=/tmp/appp_logs
 
 R="\e[31m"
 G="\e[32m"
