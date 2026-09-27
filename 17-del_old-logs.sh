@@ -14,17 +14,18 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [ -d "$SOURCE_DICT" ]; then
-    echo -e "${G}Source Directory already exists${N}"
+if [ -d $SOURCE_DICT ]; then
+   echo -e "$G Source Dictory already exist $N"
 else
-    echo -e "${R}Please make sure $SOURCE_DICT exists${N}"
-    exit 1
+   echo -e "$R Please make sure Source directory exists $N"
 fi
 
-FILES=$(find "$SOURCE_DICT" -type f -name "*.log" -mtime +14)
+FILES=$(find $SOURCE_DICT -type f -name -mtime +14)
 
 while IFS= read -r line
 do
-    echo "Deleting file: $line"
-    rm -f "$line"
-done <<< "$FILES"
+  echo "Deleting File: $line"
+  rm -rf $line
+done <<<$lines
+
+
