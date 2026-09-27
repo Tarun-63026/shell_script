@@ -8,7 +8,7 @@
 # 4. find only more than two weeks old files
 
 
-SOURCE_DICT=/tmp/appp_logs
+SOURCE_DICT=/tmp/app_logs
 
 R="\e[31m"
 G="\e[32m"
@@ -19,9 +19,10 @@ if [ -d $SOURCE_DICT ]; then
    echo -e "$G Source Directory already exist $N"
 else
    echo -e "$R Please make sure $SOURCE_DICT exist $N"
+   exit 1
 fi
 
-FILES=$(find SOURCE_DICT -name -mtime +14)
+FILES=$( find SOURCE_DICT -name -mtime +14 )
 
 while IFS= read -r line
 do
