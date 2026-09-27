@@ -21,7 +21,7 @@ else
    echo "$R Please make sure $SOURCE_DICT exist $N"
 fi
 
-FILES=$(find SOURCE_DICT-name -mtime +14)
+FILES=$(find SOURCE_DICT -name -mtime +14)
 
 while IFS read -r line
 do
