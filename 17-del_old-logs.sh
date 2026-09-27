@@ -18,6 +18,7 @@ if [ -d "$SOURCE_DICT" ]; then
    echo -e "$G Source Dictory already exist $N"
 else
    echo -e "$R Please make sure Source directory exists $N"
+   exit 1
 fi
 
 FILES=$(find "$SOURCE_DICT" -type f -name ".log*" -mtime +14)
@@ -26,6 +27,6 @@ while IFS= read -r line
 do
   echo "Deleting File: $line"
   rm -rf $line
-done <<<$lines
+done <<<$FILES
 
 
