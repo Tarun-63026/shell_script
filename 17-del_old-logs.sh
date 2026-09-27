@@ -18,7 +18,7 @@ N="\e[0m"
 if [ -d $SOURCE_DICT ]; then
    echo -e "$G Source Directory already exist $N"
 else
-   echo "$R Please make sure $SOURCE_DICT exist $N"
+   echo -e "$R Please make sure $SOURCE_DICT exist $N"
 fi
 
 FILES=$(find SOURCE_DICT -name -mtime +14)
