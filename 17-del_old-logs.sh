@@ -20,7 +20,7 @@ else
    echo -e "$R Please make sure Source directory exists $N"
 fi
 
-FILES=$(find "$SOURCE_DICT" -type f -name -mtime +14)
+FILES=$(find "$SOURCE_DICT" -type f -name ".log*" -mtime +14)
 
 while IFS= read -r line
 do
